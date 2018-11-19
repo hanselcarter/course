@@ -3,7 +3,8 @@
 const personReducerDefaultState = {
     name: '',
     email: '',
-    videos:[]
+    videos:[],
+    results:[]
   };
   
   export default (state = personReducerDefaultState, action) => {
@@ -28,6 +29,11 @@ const personReducerDefaultState = {
           ...state,
           videos:[...state.videos,action.video]
         };
+        case 'SET_RESULTS':
+        return {
+          ...state,
+          results: action.videos
+        };  
       default:
         return state;
     }

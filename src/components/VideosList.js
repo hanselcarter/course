@@ -12,7 +12,7 @@ const VideoList = (props) => {
               <li
                 key={i}
                
-              >{video.video_name}</li>
+              >{video.id}</li>
             ))}
             </ul>
       </div>
