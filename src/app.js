@@ -1,23 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import AppRouter from './routers/AppRouter';
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
-import getVideos from'./selectors/person';
-import {setName,setEmail,setVIdeos,add_video} from'./actions/person';
-import configureStore from './store/configureStore'
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import AppRouter, { history } from "./routers/AppRouter";
+import "normalize.css/normalize.css";
+import "./styles/styles.scss";
+import getVideos from "./selectors/person";
+import { startSetVideos } from "./actions/person";
+import { login, logout } from "./actions/auth";
+import configureStore from "./store/configureStore";
+import { firebase } from "./firebase/firebase";
 
-const store=configureStore();
+const store = configureStore();
+let hasRendered = false;
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>,
+      document.getElementById("app")
+    );
+    hasRendered = true;
+  }
+};
 
-store.dispatch(setName('hansel carter'));
-store.dispatch(setEmail('barahonahansel@gmail.com'));
-store.dispatch(setVIdeos([{id:1,video_name:'ji'},{id:2,video_name:'zyon'}]));
-store.dispatch(add_video({id:3,video_name:'zyonylenox'}));
-const state=store.getState();
-const videos=getVideos(state.person);
-console.log(videos);
+ReactDOM.render(<div>...loading</div>, document.getElementById("app"));
 
-
-
-ReactDOM.render(<Provider store={store}><AppRouter /></Provider>, document.getElementById('app'));
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    store.dispatch(login(user.uid));
+    console.log(user.uid);
+    store.dispatch(startSetVideos()).then(() => {
+      renderApp();
+      if (history.location.pathname === "/") {
+        history.push("/home");
+      }
+    });
+  } else {
+    store.dispatch(logout());
+    renderApp();
+    history.push("/");
+  }
+});
