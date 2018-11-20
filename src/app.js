@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-import getVideos from "./selectors/person";
 import { startSetVideos } from "./actions/person";
 import { login, logout } from "./actions/auth";
 import configureStore from "./store/configureStore";

@@ -1,16 +1,5 @@
 import db from "../firebase/firebase";
 
-//PERSON ACTIONS
-//SET_NAME
-export const setName = name => ({
-  type: "SET_NAME",
-  name
-});
-//SET_EMAIL
-export const setEmail = email => ({
-  type: "SET_EMAIL",
-  email
-});
 //SET VIDEOS
 
 export const setVIdeos = (videos = []) => ({
@@ -43,7 +32,7 @@ export const add_video = video => ({
   video
 });
 
-export const startAddExpense = (video = {}) => {
+export const startAddVideo = (video = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     db.ref(`users/${uid}/videos`)

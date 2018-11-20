@@ -1,16 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import getVideos from "../selectors/person";
+import { Livideo } from "./Livideo";
 
 const VideoList = props => {
   return (
-    <div>
-      {props.videos.length}
-      <ul>
+    <div className="container">
+      <h5>saved videos</h5>
+      <div className="collection">
         {props.videos.map((video, i) => (
-          <li key={i}>{video.id}</li>
+          <Livideo key={i} video={video} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

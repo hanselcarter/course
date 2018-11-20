@@ -1,45 +1,46 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  setName,
-  add_video,
-  startAddExpense,
-  startSetVideos
-} from "../actions/person";
-import { fetchDog } from "../actions/results";
+import { fetchFromYoutube } from "../actions/results";
+import Results from "./Results";
 
 class AddVideo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newname: ""
+      name: ""
     };
   }
 
-  handlesetName = e => {
-    this.setState({ newname: e.target.value });
+  handleSetName = e => {
+    this.setState({ name: e.target.value });
   };
 
-  changeName = () => {
-    console.log(this.props.results, this.props.person);
-  };
-
-  addOneVideo = () => {
-    //this.props.dispatch(add_video({id:5,video_name:'aerosmith'}));
-    this.props.dispatch(fetchDog());
-    this.props.dispatch(
-      startAddExpense({ url: "p.com", description: "the turtles featuring" })
-    );
-    console.log(this.props.results);
+  search = () => {
+    if (this.state.name) {
+      this.props.dispatch(fetchFromYoutube(this.state.name));
+    }
   };
 
   render() {
     return (
-      <div>
-        <h1>ji</h1>
-        <input type="text" onChange={this.handlesetName} />
-        <button onClick={this.changeName}>change</button>
-        <button onClick={this.addOneVideo}>add AddVideo</button>
+      <div className="container">
+        <input
+          placeholder="search a youtube video"
+          type="text"
+          onChange={this.handleSetName}
+        />
+        <button
+          title="search"
+          className="btn waves-effect waves-light right"
+          onClick={this.search}
+        >
+          <i title="Login" className="Large material-icons right">
+            search
+          </i>
+        </button>
+        {this.props.results.map((video, i) => (
+          <Results key={i} video={video} />
+        ))}
       </div>
     );
   }
