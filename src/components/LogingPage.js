@@ -5,12 +5,14 @@ import "../materialize/css/materialize.css";
 
 export const LoginPage = ({ startLogin }) => (
   <div>
-    <button onClick={startLogin} className="btn waves-effect waves-light">
-      LOGIN
-      <i title="Login" className="Large material-icons right">
-        cloud_queue
+    <nav className="black">
+      <button title="login" onClick={startLogin} className="btn-flat waves-effect waves-light white-text right">
+        LOGIN
+      <i title="Login" className="Large material-icons white-text right">
+          cloud_queue
       </i>
-    </button>
+      </button>
+    </nav>
   </div>
 );
 
