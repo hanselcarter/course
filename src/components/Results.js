@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { startAddExpense } from "../actions/person";
+import { startAddVideo } from "../actions/person";
 
 class Results extends React.Component {
   constructor(props) {
@@ -9,9 +9,11 @@ class Results extends React.Component {
 
   addOneVideo = () => {
     this.props.dispatch(
-      startAddExpense({ url: "p.com", description: "the turtles featuring" })
+      startAddVideo({
+        url: `https://www.youtube.com/embed/${this.props.video.id.videoId}`,
+        description: this.props.video.snippet.title
+      })
     );
-    console.log(this.props.video);
   };
 
   render() {

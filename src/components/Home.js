@@ -2,7 +2,7 @@ import React from "react";
 import VideoList from "./VideosList";
 import AddVideo from "./AddVideo";
 
-const ExpenseDashboardPage = () => (
+const Home = () => (
   <div>
     <VideoList />
     <br />
@@ -10,4 +10,4 @@ const ExpenseDashboardPage = () => (
   </div>
 );
 
-export default ExpenseDashboardPage;
+export default Home;

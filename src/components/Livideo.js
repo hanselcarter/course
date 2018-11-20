@@ -10,7 +10,13 @@ export class Livideo extends React.Component {
   render() {
     return (
       <div>
-        <li className="collection-item">{this.props.videoid}</li>
+        <a
+          className="collection-item"
+          href={this.props.video.url}
+          target="_blank"
+        >
+          {this.props.video.description}
+        </a>
       </div>
     );
   }

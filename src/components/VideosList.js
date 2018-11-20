@@ -7,11 +7,11 @@ const VideoList = props => {
   return (
     <div className="container">
       <h5>saved videos</h5>
-      <ul className="collection">
+      <div className="collection">
         {props.videos.map((video, i) => (
-          <Livideo key={i} videoid={video.id} />
+          <Livideo key={i} video={video} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

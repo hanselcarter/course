@@ -3,7 +3,7 @@ export const setResults = (videos = []) => ({
   videos
 });
 
-export const fetchDog = search => {
+export const fetchFromYoutube = search => {
   return dispatch => {
     fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=%23%23${search}&key=AIzaSyAmrqcNK6rKoG-J8p3EabhBlPz-VmhXN04`

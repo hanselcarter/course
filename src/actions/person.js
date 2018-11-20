@@ -32,7 +32,7 @@ export const add_video = video => ({
   video
 });
 
-export const startAddExpense = (video = {}) => {
+export const startAddVideo = (video = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     db.ref(`users/${uid}/videos`)

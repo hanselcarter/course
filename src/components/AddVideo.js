@@ -1,12 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  setName,
-  add_video,
-  startAddExpense,
-  startSetVideos
-} from "../actions/person";
-import { fetchDog } from "../actions/results";
+import { fetchFromYoutube } from "../actions/results";
 import Results from "./Results";
 
 class AddVideo extends React.Component {
@@ -21,15 +15,10 @@ class AddVideo extends React.Component {
     this.setState({ name: e.target.value });
   };
 
-  changeName = () => {
-    console.log(this.props.results, this.props.person);
-  };
-
   search = () => {
     if (this.state.name) {
-      this.props.dispatch(fetchDog(this.state.name));
+      this.props.dispatch(fetchFromYoutube(this.state.name));
     }
-    console.log(this.props.results);
   };
 
   render() {
