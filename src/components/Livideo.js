@@ -2,17 +2,16 @@ import React from "react";
 import "../materialize/css/materialize.css";
 import "../materialize/css/style.css";
 
-export class TRvideo extends React.Component {
+export class Livideo extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      [
-        <td>0</td>
-        <td> 1</td>
-      ]
+      <div>
+        <li className="collection-item">{this.props.videoid}</li>
+      </div>
     );
   }
 }

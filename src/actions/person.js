@@ -1,16 +1,5 @@
 import db from "../firebase/firebase";
 
-//PERSON ACTIONS
-//SET_NAME
-export const setName = name => ({
-  type: "SET_NAME",
-  name
-});
-//SET_EMAIL
-export const setEmail = email => ({
-  type: "SET_EMAIL",
-  email
-});
 //SET VIDEOS
 
 export const setVIdeos = (videos = []) => ({

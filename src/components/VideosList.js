@@ -1,29 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import getVideos from "../selectors/person";
-import { TRvideo } from "./TRvideo";
+import { Livideo } from "./Livideo";
 
 const VideoList = props => {
   return (
     <div className="container">
-      <div className="responsive-table table-status-sheet">
-        <table className="bordered">
-          <thead>
-            <tr>
-              <th className="left">Name</th>
-              <th className="centered">{props.videos.length}</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {props.videos.map((video, i) => (
-              <tr key={i}>
-                <TRvideo key={i} videoid={video.id} />
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <h5>saved videos</h5>
+      <ul className="collection">
+        {props.videos.map((video, i) => (
+          <Livideo key={i} videoid={video.id} />
+        ))}
+      </ul>
     </div>
   );
 };
