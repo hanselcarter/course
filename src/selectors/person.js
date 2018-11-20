@@ -1,3 +1,3 @@
-export default ({ videos }) => {
-    return videos;
-  };
+export default videos => {
+  return videos;
+};
