@@ -8,7 +8,7 @@ export const LoginPage = ({ startLogin }) => (
     <button onClick={startLogin} className="btn waves-effect waves-light">
       LOGIN
       <i title="Login" className="Large material-icons right">
-        cloud_done
+        cloud_queue
       </i>
     </button>
   </div>

@@ -19,7 +19,7 @@ export const Header = ({ startLogout }) => (
       >
         LOGOUT
         <i title="Logout" className="Large material-icons right white-text">
-          cloud_queue
+          cloud_done
         </i>
       </button>
     </div>
