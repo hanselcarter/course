@@ -5,8 +5,11 @@ import "../materialize/css/materialize.css";
 
 export const LoginPage = ({ startLogin }) => (
   <div>
-    <button onClick={startLogin} className="btn">
-      Login
+    <button onClick={startLogin} className="btn waves-effect waves-light">
+      LOGIN
+      <i title="Login" className="Large material-icons right">
+        cloud_done
+      </i>
     </button>
   </div>
 );

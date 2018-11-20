@@ -35,7 +35,7 @@ class AddVideo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>ji</h1>
         <input type="text" onChange={this.handlesetName} />
         <button onClick={this.changeName}>change</button>
