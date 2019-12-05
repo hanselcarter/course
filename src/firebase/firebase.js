@@ -1,12 +1,12 @@
 import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyDTqtrg51fIH6RAR-ikx3K3GUZhvnxA910",
-    authDomain: "expens-9353e.firebaseapp.com",
+    apiKey: "test",
+    authDomain: "test.firebaseapp.com",
     databaseURL: "https://expens-9353e.firebaseio.com",
-    projectId: "expens-9353e",
-    storageBucket: "expens-9353e.appspot.com",
-    messagingSenderId: "346046868999"
+    projectId: "teste",
+    storageBucket: "expens-test.appspot.com",
+    messagingSenderId: "test"
   };
   firebase.initializeApp(config);
 
